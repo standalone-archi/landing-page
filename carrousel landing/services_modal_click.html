@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ce que nous faisons – StandAlone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a1a2f;
+      color: #ffffff;
+    }
+    .section-services {
+      display: flex;
+      flex-direction: row;
+      min-height: 90vh;
+    }
+    .image {
+      flex: 1;
+    }
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .texte {
+      flex: 1;
+      padding: 40px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      animation: fadeIn 1.2s ease;
+    }
+    .texte h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .texte p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #d0d8e0;
+      margin-bottom: 12px;
+    }
+    .mot-cliquable {
+      color: #66ccff;
+      cursor: pointer;
+      border-bottom: 1px dotted transparent;
+      transition: border-bottom 0.3s ease;
+    }
+    .mot-cliquable:hover {
+      border-bottom: 1px dotted #66ccff;
+    }
+    .final-bloc {
+      margin-top: auto;
+      margin-bottom: 10px;
+      background-color: rgba(255,255,255,0.03);
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1em;
+      font-weight: 500;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .section-services {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .texte {
+        padding: 20px 20px 10px;
+      }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #ffffff;
+      color: #000000;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 1em;
+    }
+    .close {
+      color: #888;
+      float: right;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <section class="section-services">
+    <div class="image">
+      <img src="https://github.com/standalone-archi/landing-page/raw/main/ChatGPT%20Image%206%20juin%202025%2C%2016_16_39.png" alt="Façade aluminium moderne">
+    </div>
+    <div class="texte">
+      <h2>Ce que nous faisons</h2>
+      <p>
+        Chez <strong>StandAlone</strong>, nous accompagnons les architectes, bureaux d'études et entreprises de construction dans la maîtrise complète des menuiseries aluminium.
+        Notre mission est simple : vous faire gagner du temps, de l’argent, et de la justesse, en vous apportant une expertise indépendante, rigoureuse et sans compromis.
+      </p>
+      <p>
+        Nous intervenons dès les premières phases du projet pour analyser la <span class="mot-cliquable" onclick="openModal('faisabilite')">faisabilité technique</span>, vous conseiller sur les <span class="mot-cliquable" onclick="openModal('systemes')">systèmes aluminium adaptés</span>, vous aider à rédiger les <span class="mot-cliquable" onclick="openModal('documents')">documents techniques</span> (CPS, plans d’exécution, notes de calcul), et vous guider dans les choix esthétiques et fonctionnels.
+      </p>
+      <p>
+        Nous assurons également un <span class="mot-cliquable" onclick="openModal('sourcing')">sourcing stratégique</span> auprès des fabricants, sans aucun lien commercial, afin de vous garantir un accès direct aux bons produits : profilés, vitrages, accessoires, traitements de surface.
+      </p>
+      <p>
+        Notre force ? Une expérience de 30 ans dans le domaine, une indépendance totale vis-à-vis des entreprises, et une capacité à détecter les incohérences avant qu’elles ne coûtent cher.
+      </p>
+      <div class="final-bloc">
+        <p><strong>StandAlone</strong> n'est pas une menuiserie.</p>
+        <p>Nous sommes votre <span class="mot-cliquable" onclick="openModal('gardefou')">garde-fou technique</span>, votre interface experte, et votre allié discret.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-text"></div>
+    </div>
+  </div>
+
+  <script>
+    const texts = {
+      faisabilite: "Dès les premières esquisses, nous évaluons la faisabilité technique de votre projet aluminium en identifiant les contraintes structurelles, thermiques, réglementaires et esthétiques. Notre approche préventive permet d’éviter les mauvaises surprises en phase chantier, tout en optimisant les performances et les coûts.",
+      systemes: "Nous vous orientons vers les systèmes aluminium les plus adaptés à vos contraintes techniques, esthétiques et budgétaires. Cela inclut le choix des gammes de profilés, des types d’ouvertures, des niveaux de performance thermique ou acoustique, ainsi que des solutions compatibles avec les réglementations locales et les ambitions architecturales.",
+      documents: "Nous intervenons dans la production ou la vérification de tous vos documents techniques : CCTP, plans d’exécution, notes de calcul, détails d’assemblage, carnets de détails... Chaque document est contrôlé pour garantir sa cohérence, sa précision et sa conformité avec les attentes du maître d’ouvrage, du bureau de contrôle et de l’entreprise de pose.",
+      sourcing: "Grâce à une connaissance fine du marché et à notre indépendance totale, nous identifions les fournisseurs les plus fiables pour chaque typologie de produit : profilés, vitrages, accessoires, finitions. Ce sourcing stratégique vous permet de maîtriser qualité, délais et prix, tout en sécurisant vos approvisionnements.",
+      gardefou: "En intervenant en amont et tout au long du processus, nous agissons comme un garde-fou technique impartial. Nous détectons les incohérences invisibles à l’œil non averti, anticipons les conflits entre lots, et garantissons une parfaite lisibilité entre le projet dessiné et sa mise en œuvre réelle. Notre objectif : fluidifier le dialogue entre tous les acteurs et éviter les dérapages budgétaires ou techniques."
+    };
+    function openModal(key) {
+      document.getElementById("modal-text").innerText = texts[key];
+      document.getElementById("modal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) closeModal();
+    }
+  </script>
+
+</body>
+</html>

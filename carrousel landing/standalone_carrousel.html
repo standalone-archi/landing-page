@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StandAlone – Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #0b1e3f 0%, #010a1f 100%);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      padding-top: 35vh;
+    }
+    .logo {
+      font-size: 6.5rem;
+      font-weight: 700;
+      display: flex;
+      letter-spacing: -0.5px;
+    }
+    .logo .stand {
+      color: #444;
+      -webkit-text-stroke: 1.2px #ffffff;
+      text-shadow:
+        0 0 6px #ffffff,
+        0 0 12px #ffffff,
+        0 0 24px #ffffff;
+    }
+    .logo .alone {
+      color: #002147;
+      -webkit-text-stroke: 1.2px #ffffff;
+      text-shadow:
+        0 0 6px #ffffff,
+        0 0 12px #ffffff,
+        0 0 24px #ffffff,
+        0 0 40px #002147,
+        0 0 80px #002147;
+    }
+    .cta {
+      position: absolute;
+      bottom: 80px;
+      padding: 0.8rem 2rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      color: #ccc;
+      font-size: 1.1rem;
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .cta:hover {
+      color: white;
+      border-color: #3fa6ff;
+      box-shadow: 0 0 10px #3fa6ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <span class="stand">Stand</span><span class="alone">Alone</span>
+    </div>
+    <button class="cta">Faisons connaissance</button>
+  </div>
+</body>
+</html>
