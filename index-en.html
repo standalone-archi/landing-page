@@ -1,0 +1,499 @@
+<!-- redeploy trigger -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>StandAlone – Services Fusionnés</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+.page-bloc {
+  scroll-snap-align: start;
+}
+
+
+/* Isolated intro section styles */
+.intro-section {
+  height: 100vh;
+  background: radial-gradient(circle at center, #0b1e3f 0%, #010a1f 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: start;
+}
+.intro-section .logo {
+  font-size: 6.5rem;
+  font-weight: 700;
+  display: flex;
+  letter-spacing: -0.5px;
+}
+.intro-section .stand {
+  color: #444;
+  -webkit-text-stroke: 1.2px #ffffff;
+  text-shadow:
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 24px #ffffff;
+}
+.intro-section .alone {
+  color: #002147;
+  -webkit-text-stroke: 1.2px #ffffff;
+  text-shadow:
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 24px #ffffff,
+    0 0 40px #002147,
+    0 0 80px #002147;
+}
+.intro-section .cta {
+  position: absolute;
+  bottom: 80px;
+  padding: 0.8rem 2rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  color: #ccc;
+  font-size: 1.1rem;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.intro-section .cta:hover {
+  color: white;
+  border-color: #3fa6ff;
+  box-shadow: 0 0 10px #3fa6ff;
+}
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+  opacity: 0.6;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a1a2f;
+      color: #ffffff;
+    }
+    .section-services {
+      display: flex;
+      flex-direction: row;
+      min-height: 90vh;
+    }
+    .image {
+      flex: 1;
+    }
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .texte {
+      flex: 1;
+      padding: 40px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      animation: fadeIn 1.2s ease;
+    }
+    .texte h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .texte p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #d0d8e0;
+      margin-bottom: 12px;
+    }
+    .mot-cliquable {
+      color: #66ccff;
+      cursor: pointer;
+      border-bottom: 1px dotted transparent;
+      transition: border-bottom 0.3s ease;
+    }
+    .mot-cliquable:hover {
+      border-bottom: 1px dotted #66ccff;
+    }
+    .final-bloc {
+      margin-top: auto;
+      margin-bottom: 10px;
+      background-color: rgba(255,255,255,0.03);
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1em;
+      font-weight: 500;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .section-services {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .texte {
+        padding: 20px 20px 10px;
+      }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #ffffff;
+      color: #000000;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 1em;
+    }
+    .close {
+      color: #888;
+      float: right;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0f1a;
+      color: white;
+      height: 100%;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+      height: 100%;
+    }
+    .left-column {
+      width: 40%;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .left-column img {
+      width: 100%;
+      height: 33.33%;
+      object-fit: cover;
+    }
+    .right-column {
+      width: 60%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 1.6em;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      color: #66ccff;
+    }
+    .cta-button {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-button a {
+      background-color: #66ccff;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .cta-button a:hover {
+      background-color: #ffffff;
+      color: #0a0f1a;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #66ccff;
+    }
+  
+  
+  .page-bloc {
+    padding: 40px 0 20px 0;
+    width: 100%;
+    clear: both;
+    position: relative;
+  }
+
+.sticky-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(10, 15, 26, 0.8);
+  padding: 10px 20px;
+  z-index: 9999;
+  border-bottom-left-radius: 10px;
+}
+.sticky-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+.sticky-menu a {
+  color: #66ccff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.sticky-menu a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    height: auto;
+    padding: 60px 20px 100px;
+    text-align: center;
+    position: relative;
+  }
+
+  .intro-section .logo {
+    font-size: 2.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .intro-section .cta {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    margin-top: 20px;
+  }
+
+  .section-services {
+    flex-direction: column;
+  }
+
+  .image,
+  .left-column {
+    width: 100%;
+    height: auto !important;
+    min-height: 200px;
+  }
+
+  .image img,
+  .left-column img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .right-column {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+
+/* === Ajout pour lien actif === */
+.sticky-menu a.active {
+  border-bottom: 2px solid #66ccff;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+
+/* === Lien actif : couleur + surbrillance + zoom === */
+.sticky-menu a.active {
+  color: #ffffff;
+  background-color: #003366;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transform: scale(1.2);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(102, 204, 255, 0.7);
+}
+
+</style>
+</head>
+<body>
+<nav class="sticky-menu">
+<ul>
+<li><a href="#intro">Home</a></li>
+<li><a href="#services-fusion">Our Services</a></li>
+<li><a href="#archimetal">ArchiMetal</a></li>
+</ul>
+</nav>
+<section class="intro-section page-bloc" id="intro">
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; transform: translateY(-15%);">
+<div class="logo">
+<span class="stand">Stand</span><span class="alone">Alone</span>
+</div>
+<button class="cta" onclick="document.getElementById('services-fusion').scrollIntoView({ behavior: 'smooth' });" style="left: 50%; transform: translateX(-50%);">Let’s get acquainted</button></div></section>
+<section class="page-bloc" id="services-fusion">
+<section class="section-services">
+<div class="image">
+<img alt="Façade aluminium moderne" src="https://raw.githubusercontent.com/standalone-archi/landing-page/main/ChatGPT%20Image%206%20juin%202025%2C%2016_16_39.png"/>
+</div>
+<div class="texte">
+<h2>What We Do</h2>
+<p>
+<strong>StandAlone</strong> is a technical consulting and engineering firm specializing in aluminium and glazing. With 30 years of field experience, we support architects, project managers, and general contractors.
+</p>
+<p>
+  We intervene at every stage of the project to ensure consistency, performance, and profitability: analysis of <span class="mot-cliquable" onclick="openModal('faisabilite')">technical feasibility</span>, advice on <span class="mot-cliquable" onclick="openModal('systemes')">suitable aluminium systems</span>, drafting or checking of <span class="mot-cliquable" onclick="openModal('documents')">execution documents</span>, and guidance in aesthetic and functional choices.
+</p>
+<p>
+  We also provide <span class="mot-cliquable" onclick="openModal('gestion')">rigorous project management</span> and <span class="mot-cliquable" onclick="openModal('sourcing')">strategic sourcing</span> from carefully selected suppliers, free from commercial bias. Our goal: to provide reliable, competitive, and sustainable solutions.
+</p>
+<p>
+  What sets us apart? Our independence, critical perspective, and deep field experience. We anticipate issues before they turn into costly problems.
+</p>
+<div class="final-bloc">
+<p>We are your <span class="mot-cliquable" onclick="openModal('gardefou')">technical safeguard</span>, your invisible coordinator, and your trusted third party.</p>
+</div>
+</div>
+</section>
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<div id="modal-text"></div>
+</div>
+</div>
+<script>
+    const texts = {
+
+      faisabilite: "From the very first sketches, we assess the technical feasibility of your aluminium project by identifying structural, thermal, regulatory, and aesthetic constraints. Our preventive approach helps avoid surprises during construction while optimizing performance and costs.",
+      systemes: "We guide you toward the most suitable aluminium systems for your technical, aesthetic, and budgetary requirements. This includes selecting profile ranges, opening types, thermal or acoustic performance levels, and solutions that comply with local regulations and architectural goals.",
+      documents: "We support the production or review of all your technical documents: specifications, execution plans, calculation notes, assembly details, and detail booklets. Each document is checked to ensure consistency, precision, and compliance with client, inspector, and installer expectations.",
+      gestion: "We manage your aluminium projects from design to delivery. This includes coordinating technical studies, validating system choices, managing interfaces with other trades, and ensuring quality control over documents and execution. A precise, conflict-free accompaniment.",
+      sourcing: "Thanks to deep market knowledge and full independence, we identify the most reliable suppliers for each product type: profiles, glazing, accessories, finishes. Our strategic sourcing secures your supply chain while maintaining quality, deadlines, and pricing.",
+      gardefou: "We act as an impartial technical safeguard from the early stages through project delivery. We detect inconsistencies, anticipate trade conflicts, and ensure seamless alignment between the design and its actual implementation. Our mission: facilitate collaboration and prevent technical or budgetary issues."
+    
+    };
+    function openModal(key) {
+      document.getElementById("modal-text").innerText = texts[key];
+      document.getElementById("modal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) closeModal();
+    }
+  
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
+
+</script>
+</section>
+<section class="page-bloc" id="archimetal">
+<section class="section-services">
+<div class="image">
+<img alt="Image alternative ArchiMetal" src="https://raw.githubusercontent.com/standalone-archi/landing-page/main/ChatGPT%20Image%206%20juin%202025%2C%2016_16_08.png"/>
+</div>
+<div class="texte">
+<h1>ArchiMetal – La newsletter</h1>
+<h2>What You’ll Find</h2>
+<p>
+  ArchiMetal explore l’aluminium et le verre sous l’angle de l’ingénierie, de l’architecture et de la technique appliquée. 
+  C’est un espace de veille, de réflexion, et de partage sur les pratiques contemporaines de la façade.
+</p>
+<ul>
+<li>Recent projects analyzed through their implementation and technical choices</li>
+<li>Focus on systems, innovations, and trends in aluminium-glazing</li>
+<li>Feedback from architects, engineers, and installers</li>
+</ul>
+<p>ArchiMetal is the voice of those who design and build with high standards. A newsletter to inspire your projects, compare approaches, and highlight the role of engineering in building envelopes.</p>
+<p>Are you an architect, engineer, manufacturer, inspector, or installer? Share your perspective, showcase your projects, explain your decisions. ArchiMetal gives you the mic.</p>
+<div class="cta-button">
+<a href="https://archimetal.standalone-archi.com/">Subscribe to ArchiMetal</a>
+</div>
+</div>
+</section>
+</section>
+<!-- === Script pour mise en valeur du lien actif === -->
+<script>
+  const sections = document.querySelectorAll('.page-bloc[id]');
+  const navLinks = document.querySelectorAll('.sticky-menu a');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Choisissez votre langue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: radial-gradient(circle at center, #0b1e3f 0%, #010a1f 100%);
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 600px;
+    }
+    .lang-button {
+      background: linear-gradient(145deg, #66ccff, #3399cc);
+      border: none;
+      color: #ffffff;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .lang-button:hover {
+      background: linear-gradient(145deg, #ffffff, #66ccff);
+      color: #0a1a2f;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(102, 204, 255, 0.4);
+    }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+      .lang-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Choisissez votre langue / Select your language</h1>
+  <div class="button-container">
+    <a class="lang-button" href="index_standalone_fr.html">🇫🇷 Français</a>
+    <a class="lang-button" href="index_standalone_en_final.html">🇬🇧 English</a>
+    <a class="lang-button" href="index_standalone_es_full.html">🇪🇸 Español</a>
+    <a class="lang-button" href="index_standalone_gr_full.html">🇬🇷 Ελληνικά</a>
+    <a class="lang-button" href="index_standalone_ar_corrected.html">🇲🇦 العربية</a>
+    <a class="lang-button" href="index_standalone_it_final.html">🇮🇹 Italiano</a>
+    <a class="lang-button" href="index_standalone_pt_final.html">🇵🇹 Português</a>
+  </div>
+</body>
+</html>
